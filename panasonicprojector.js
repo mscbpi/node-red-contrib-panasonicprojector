@@ -2,7 +2,7 @@ var crypto = require('crypto');
 var debug = require('debug')('node-red-contrib-panasonicprojector');
 var tcp = require('net');
 var eventEmitter = require("events");
-var timeoutPeriod = 500;
+var timeoutPeriod = 1500;
 class EventEmitter extends eventEmitter{}
 module.exports = function(RED)
 {
