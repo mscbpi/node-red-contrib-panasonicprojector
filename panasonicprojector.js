@@ -149,14 +149,17 @@ function getData(data, expectedCommand)
 function sendData(command, parameter, server, username, password, projectorId, md5Hash) 
 {
     var hashValue = new Buffer(md5Hash);
-    var start = new Buffer(7);
+    var start=new Buffer(2);
+    start.writeUInt8(0x30, 0);
+    start.writeUInt8(0x30, 1);
+    /*var start = new Buffer(7);
     start.writeUInt8(0x30, 0);
     start.writeUInt8(0x30, 1);
     start.write("A", 2);
     start.write("D", 3);
     start.write(projectorId[0].toUpperCase(), 4);
     start.write(projectorId[1].toUpperCase(), 5);
-    start.writeUInt8(0x3b, 6);
+    start.writeUInt8(0x3b, 6);*/
 
     var commandBuff = new Buffer(command);
     var parameterBuff = new Buffer(parameter);
